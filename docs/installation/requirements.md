@@ -106,6 +106,40 @@ Older Windows versions may work but lack PV drivers, resulting in lower networki
 - FreeBSD and related distributions (e.g., pfSense, TrueNAS)
 - OpenBSD
 
+## Virtual Machine Requirements
+
+Below are the recommended configuration limits for virtual machines running on XCP-ng, designed to maintain optimal performance and stability.
+
+| Category                                 | Requirement                               |
+|--------------------------------------|-------------------------------------|
+| **CPU**                          |                                     |
+| Virtual CPUs (vCPUs) per Linux VM          | Up to 32 or 64 vCPUs (see note 1)   |
+| Virtual CPUs (vCPUs) per Windows VM        | Up to 32 or 64 vCPUs (see note 1)  |
+| **Memory**                           |                                     |
+| Maximum RAM per VM                   | 1.5 TiB (see note 2)                |
+| **Storage**                          |                                     |
+| Virtual Disk Images per VM, including CD-ROM | 241 (see note 2)   |
+| Virtual CD-ROM drives per VM         | 1                                   |
+| Maximum Virtual Disk Size (NFS)      | 2040 GiB                            |
+| Maximum Virtual Disk Size (LVM)      | 2040 GiB                            |
+| Maximum Virtual Disk Size (XFS)      | 16 TiB                              |
+| Maximum Virtual Disk Size (GFS2)     | 16 TiB                              |
+| **Networking**                       |                                     |
+| Virtual Network Interface Controller (NICs) per VM                  | 7 (see note 4)                      |
+| **GPU**            |                                     |
+| Virtual GPUs per VM                  | 8                                   |
+| Passed-through GPUs per VM           | 1                                   |
+| **Other**                          |                                     |
+| Passed-through USB devices      | 6                                   |
+
+:::info Notes
+1. Always check the documentation for your guest operating system to make sure you are staying within the supported limits. For example, Red Hat Enterprise Linux 8 and its derivatives only support up to 32 vCPUs. While the theoretical limit is 64, it's a good idea to limit yourself to 32 if you're concerned about the reliability of your VMs or want to avoid any potential impact on the stability of your system.
+2. The amount of physical memory that can be used by your operating system depends on its capabilities. Allocating more memory than the operating system can handle can cause performance degradation within your guest VM.
+3. The number of virtual disk images (VDIs) you can use is determined by the capabilities of the guest OS. Be sure to consult your guest operating system documentation to ensure that you stay within the limits supported by the guest operating system.
+4. Some guest operating systems may have lower limits by default, while others may require the installation of XCP-ng Guest Tools to reach the maximum supported limits.
+:::
+
+
 ## 🎱 Pool Requirements
 
 A resource pool is a collection of one or more servers (up to 64), which can be homogeneous or heterogeneous. Before creating or joining a pool, ensure the following:
