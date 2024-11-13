@@ -108,37 +108,32 @@ Older Windows versions may work but lack PV drivers, resulting in lower networki
 
 ## Virtual Machine Requirements
 
-Below are the recommended configuration limits for virtual machines running on XCP-ng, designed to maintain optimal performance and stability.
+Here are the recommended setup limits for virtual machines on XCP-ng to keep things running smoothly and efficiently:
 
-| Category                                 | Requirement                               |
-|--------------------------------------|-------------------------------------|
-| **CPU**                          |                                     |
-| Virtual CPUs (vCPUs) per Linux VM          | Up to 32 or 64 vCPUs (see note 1)   |
-| Virtual CPUs (vCPUs) per Windows VM        | Up to 32 or 64 vCPUs (see note 1)  |
-| **Memory**                           |                                     |
-| Maximum RAM per VM                   | 1.5 TiB (see note 2)                |
-| **Storage**                          |                                     |
-| Virtual Disk Images per VM, including CD-ROM | 241 (see note 2)   |
-| Virtual CD-ROM drives per VM         | 1                                   |
-| Maximum Virtual Disk Size (NFS)      | 2040 GiB                            |
-| Maximum Virtual Disk Size (LVM)      | 2040 GiB                            |
-| Maximum Virtual Disk Size (XFS)      | 16 TiB                              |
-| Maximum Virtual Disk Size (GFS2)     | 16 TiB                              |
-| **Networking**                       |                                     |
-| Virtual Network Interface Controller (NICs) per VM                  | 7 (see note 4)                      |
-| **GPU**            |                                     |
-| Virtual GPUs per VM                  | 8                                   |
-| Passed-through GPUs per VM           | 1                                   |
-| **Other**                          |                                     |
-| Passed-through USB devices      | 6                                   |
+**CPU**  
+- Virtual CPUs (vCPUs) for Linux VMs: You can use up to 32 or 64 vCPUs, but make sure to check what your guest OS supports. For example, Red Hat Enterprise Linux 8 and its similar distributions only handle up to 32 vCPUs. Even though 64 is possible, sticking to 32 is a safer bet for reliability and stability.  
+- Virtual CPUs (vCPUs) for Windows VMs: Same as for Linux—up to 32 or 64 vCPUs, depending on what’s compatible with your guest OS.
 
-:::info Notes
-1. Always check the documentation for your guest operating system to make sure you are staying within the supported limits. For example, Red Hat Enterprise Linux 8 and its derivatives only support up to 32 vCPUs. While the theoretical limit is 64, it's a good idea to limit yourself to 32 if you're concerned about the reliability of your VMs or want to avoid any potential impact on the stability of your system.
-2. The amount of physical memory that can be used by your operating system depends on its capabilities. Allocating more memory than the operating system can handle can cause performance degradation within your guest VM.
-3. The number of virtual disk images (VDIs) you can use is determined by the capabilities of the guest OS. Be sure to consult your guest operating system documentation to ensure that you stay within the limits supported by the guest operating system.
-4. Some guest operating systems may have lower limits by default, while others may require the installation of XCP-ng Guest Tools to reach the maximum supported limits.
-:::
+**GPU**  
+- Virtual GPUs per VM: 8  
+- Passed-through GPUs per VM: 1  
 
+**Memory**  
+- Maximum RAM per VM: 1.5 TiB. Just keep in mind that the actual memory your OS can use depends on its limits. If you go over what it can manage, you might see some performance drops.
+
+**Storage**  
+- Virtual Disk Images per VM, including CD-ROMs: Up to 241. This number is influenced by what your guest OS supports, so double-check your OS documentation to stay within its limits.  
+- Virtual CD-ROM drives per VM: 1  
+- Maximum Virtual Disk Size for NFS: 2040 GiB  
+- Maximum Virtual Disk Size for LVM: 2040 GiB  
+- Maximum Virtual Disk Size for XFS: 16 TiB  
+- Maximum Virtual Disk Size for GFS2: 16 TiB  
+
+**Networking**  
+- Virtual Network Interface Controllers (NICs) per VM: Up to 7. Some guest operating systems might have stricter limits, or you might need to install XCP-ng Guest Tools to hit the maximum limit.
+
+**Other**  
+- Passed-through USB devices: Up to 6
 
 ## 🎱 Pool Requirements
 
