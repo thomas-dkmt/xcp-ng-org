@@ -124,8 +124,8 @@ Here are the recommended setup limits for virtual machines on XCP-ng to keep thi
 **Storage**  
 - Virtual Disk Images per VM, including CD-ROMs: Up to 241. This number is influenced by what your guest OS supports, so double-check your OS documentation to stay within its limits.  
 - Virtual CD-ROM drives per VM: 1  
-- Maximum Virtual Disk Size for NFS: 2040 GiB  
-- Maximum Virtual Disk Size for LVM: 2040 GiB  
+- Maximum Virtual Disk Size for NFS: 2,040 GiB  
+- Maximum Virtual Disk Size for LVM: 2,040 GiB  
 - Maximum Virtual Disk Size for XFS: 16 TiB  
 - Maximum Virtual Disk Size for GFS2: 16 TiB  
 
