@@ -110,18 +110,26 @@ Older Windows versions may work but lack PV drivers, resulting in lower networki
 
 Here are the recommended setup limits for virtual machines on XCP-ng to keep things running smoothly and efficiently:
 
-**CPU**  
-- Virtual CPUs (vCPUs) for Linux VMs: You can use up to 32 or 64 vCPUs, but make sure to check what your guest OS supports. For example, Red Hat Enterprise Linux 8 and its similar distributions only handle up to 32 vCPUs. Even though 64 is possible, sticking to 32 is a safer bet for reliability and stability.  
-- Virtual CPUs (vCPUs) for Windows VMs: Same as for Linux—up to 32 or 64 vCPUs, depending on what’s compatible with your guest OS.
+### CPU
 
-**GPU**  
+#### XCP-ng 8.2
+
+- Virtual CPUs (vCPUs) for Linux VMs: You can use up to **32 vCPUs**, but make sure to check what your guest OS supports.
+- Virtual CPUs (vCPUs) for Windows VMs: You can use up to **32 vCPUs**.
+
+#### XCP-ng 8.3
+
+- Virtual CPUs (vCPUs) for Linux and Windows VMs: You can use up to **64 vCPUs**, but make sure to check what your guest OS supports. \
+For example, Red Hat Enterprise Linux 8 and its similar distributions only handle up to 32 vCPUs. Even though 64 is possible, sticking to 32 is a safer bet for reliability and stability.  
+
+#### GPU
 - Virtual GPUs per VM: 8  
 - Passed-through GPUs per VM: 1  
 
-**Memory**  
+#### Memory
 - Maximum RAM per VM: 1.5 TiB. Just keep in mind that the actual memory your OS can use depends on its limits. If you go over what it can manage, you might see some performance drops.
 
-**Storage**  
+#### Storage
 - Virtual Disk Images per VM, including CD-ROMs: Up to 241. This number is influenced by what your guest OS supports, so double-check your OS documentation to stay within its limits.  
 - Virtual CD-ROM drives per VM: 1  
 - Maximum Virtual Disk Size for NFS: 2,040 GiB  
@@ -129,10 +137,10 @@ Here are the recommended setup limits for virtual machines on XCP-ng to keep thi
 - Maximum Virtual Disk Size for XFS: 16 TiB  
 - Maximum Virtual Disk Size for GFS2: 16 TiB  
 
-**Networking**  
+#### Networking
 - Virtual Network Interface Controllers (NICs) per VM: Up to 7. Some guest operating systems might have stricter limits, or you might need to install XCP-ng Guest Tools to hit the maximum limit.
 
-**Other**  
+#### Other
 - Passed-through USB devices: Up to 6
 
 ## 🎱 Pool Requirements
