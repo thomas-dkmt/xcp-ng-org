@@ -28,8 +28,8 @@ const sidebars = {
       items: [
         {type: 'doc', id: 'installation/requirements'},
         {type: 'doc', id: 'installation/install-xcp-ng'},
-        {type: 'doc', id: 'migrate-to-xcp-ng'},
-        {type: 'doc', id: 'upgrade'},
+        {type: 'doc', id: 'installation/migrate-to-xcp-ng'},
+        {type: 'doc', id: 'installation/upgrade'},
       ],
     },
     {
@@ -168,12 +168,12 @@ const sidebars = {
       type: 'category',
       label: 'Appendix',
       items: [
-        { type: 'doc', id: 'appendix/anserfile'},
+        { type: 'doc', id: 'appendix/answerfile'},
         { type: 'doc', id: 'appendix/cli_reference'},
         { type: 'doc', id: 'appendix/glossary'},
       ]
     }
   ],
-},
+};
 
-module.exports = sidebars;
+export default sidebars;
