@@ -90,7 +90,7 @@ EXT instead of LVM? We advise to use EXT to benefit from thin provisioning!
 :::
 
 :::warning
-When the installer skips [step 5](#_5-disk-selection) automatically, users sometimes mistake this step with the selection of the system disk.
+When the installer skips [step 5](#5-disk-selection) automatically, users sometimes mistake this step with the selection of the system disk.
 :::
 
 #### 7. Installation source
@@ -203,7 +203,7 @@ PXE boot doesn't support tagged VLAN networks! Be sure to boot on a untagged net
 4. In the TFTP root directory, create a folder called `pxelinux.cfg`
 5. In the pxelinux.cfg directory, create your configuration file called `default`.
 
-The file itself will contain the way to install XCP-ng: manually (with answer to provide on the host console/screen) or fully automated (see [Automated install](#-automatedinstall) below).
+The file itself will contain the way to install XCP-ng: manually (with answer to provide on the host console/screen) or fully automated (see [Automated install](#-automated-install) below).
 
 Here is an example of a manual installation:
 

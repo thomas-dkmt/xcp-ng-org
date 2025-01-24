@@ -456,7 +456,7 @@ xe vm-param-get param-name=has-vendor-device uuid={VM-UUID}
     * request for restart \<- just restart!
     * Management Agent installed successfully \<- enjoy :-)
 
-##### Upgrade from Citrix :registered: XenServer :registered: client tools
+##### <a name="citrix-client-tools"></a> Upgrade from Citrix :registered: XenServer :registered: client tools
 
 Our installer is not able currently to cleanly uninstall Citrix tools. Citrix tools' uninstaller itself isn't either: it leaves various things behind.
 
